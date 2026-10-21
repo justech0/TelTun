@@ -4,7 +4,7 @@
 
 <h1 align="center">TelTun</h1>
 <p align="center"><b>Share your Android phone's mobile internet with your Windows PC over USB.</b><br/>
-Made by Enes · Free and open source · English / Türkçe</p>
+Made by Enes · English / Türkçe</p>
 
 ---
 
@@ -14,17 +14,26 @@ TelTun is a small Windows program. Plug in your phone with a USB cable, press **
 
 ### Features
 - One-click **Connect / Disconnect**
-- Live **download / upload speed** with charts
+- Live **download / upload speed** with charts, and a **speedtest.net** button
+- Public IP is **hidden by default**, with a show / hide button
 - **Mobile hotspot** button: share the tunnel with other devices over Wi-Fi
 - **Tray icon**, start with Windows, auto reconnect
 - **English and Turkish** interface
 - A **How it works** page that explains every step — TelTun is made for learning
 
 ### First time setup
-1. On the phone: **Settings → About phone →** tap **Build number** (or OS version) 7 times. Developer options are now on.
-2. **Developer options → USB debugging** → on.
+1. On the phone open **Settings → About phone** and tap **Build number** 7 times. Developer options are now on.
+   - Xiaomi / Redmi / POCO: tap **OS version** instead.
+   - Samsung: **About phone → Software information → Build number**.
+2. Open **Developer options** and turn on **USB debugging**. It is usually under **Settings → System**. On Xiaomi it is under **Additional settings**, on Samsung at the bottom of Settings.
 3. Plug in the cable. Unlock the phone and tap **Allow** on the USB debugging prompt (tick *Always allow*).
 4. Open `TelTun.exe` (it asks for admin rights) and press **Connect**.
+
+### Tested phones
+Works on most Android phones that have USB debugging. Tested and working on:
+- Redmi Note 13 Pro 5G
+- Redmi Note 10 Pro
+- Xiaomi 17 Pro
 
 ### How it works
 ```
@@ -58,7 +67,6 @@ Project layout:
 | `cmd/linktest` | Dev tool: test the phone link without touching routes |
 
 ### Notes
-- Use it with your own phone and mobile plan, and follow your operator's terms.
 - Admin rights are needed to create the virtual network card.
 - Logs: `%LOCALAPPDATA%\TelTun\teltun.log` (or the Logs page).
 
@@ -70,17 +78,26 @@ TelTun küçük bir Windows programı. Telefonu USB kabloyla tak, **Bağlan**'a 
 
 ### Özellikler
 - Tek tıkla **Bağlan / Kes**
-- Grafikli anlık **indirme / yükleme hızı**
+- Grafikli anlık **indirme / yükleme hızı** ve **speedtest.net** hız testi düğmesi
+- Genel IP **varsayılan olarak gizli**, göster / gizle düğmesi var
 - **Mobil etkin nokta** düğmesi: tüneli Wi-Fi ile başka cihazlarla paylaş
 - **Sistem tepsisi**, Windows ile başlat, kopunca yeniden bağlan
 - **Türkçe ve İngilizce** arayüz
 - Her adımı anlatan **Nasıl çalışır** sayfası — TelTun öğrenmek için yapıldı
 
 ### İlk kurulum
-1. Telefonda: **Ayarlar → Telefon hakkında →** **Yapı numarası**'na (veya OS sürümü) 7 kez dokun. Geliştirici seçenekleri açılır.
-2. **Geliştirici seçenekleri → USB hata ayıklama** → aç.
+1. Telefonda **Ayarlar → Telefon hakkında** bölümüne gir ve **Yapı numarası**'na 7 kez dokun. Geliştirici seçenekleri açılır.
+   - Xiaomi / Redmi / POCO: **OS sürümü**'ne dokun.
+   - Samsung: **Telefon hakkında → Yazılım bilgileri → Yapı numarası**.
+2. **Geliştirici seçenekleri**'ne gir ve **USB hata ayıklama**'yı aç. Genelde **Ayarlar → Sistem** altındadır. Xiaomi'de **Ek ayarlar** altında, Samsung'da Ayarlar'ın en altındadır.
 3. Kabloyu tak. Telefonun kilidini aç, USB hata ayıklama sorusunda **İzin ver**'e dokun (*Her zaman izin ver*'i işaretle).
 4. `TelTun.exe`'yi aç (yönetici izni ister) ve **Bağlan**'a bas.
+
+### Test edilen telefonlar
+USB hata ayıklaması olan çoğu Android telefonda çalışır. Denenip çalışanlar:
+- Redmi Note 13 Pro 5G
+- Redmi Note 10 Pro
+- Xiaomi 17 Pro
 
 ### Nasıl çalışır
 - TelTun telefona küçük bir yardımcı kopyalar (`/data/local/tmp/teltun`) ve `adb shell` ile başlatır. Yardımcı sadece telefonun kendi içini (127.0.0.1) dinler.
@@ -94,11 +111,13 @@ TelTun küçük bir Windows programı. Telefonu USB kabloyla tak, **Bağlan**'a 
 Go 1.25+, Node.js ve Wails CLI gerekir. `./build.ps1` çalıştır, sonuç `build/bin/TelTun.exe`.
 
 ### Notlar
-- Kendi telefonun ve hattınla kullan, operatörünün kurallarına uy.
 - Sanal ağ kartı için yönetici izni gerekir.
 - Kayıtlar: `%LOCALAPPDATA%\TelTun\teltun.log` (veya Kayıtlar sayfası).
 
 ---
+
+## Contact / İletişim
+📧 [iletisim@enestunc.com.tr](mailto:iletisim@enestunc.com.tr)
 
 ## License / Lisans
 GPL-3.0 — see [LICENSE](LICENSE). Uses sing-box (GPL-3.0), yamux (MPL-2.0), Wails (MIT), fyne systray (Apache-2.0) and Android platform-tools (Apache-2.0, see `assets/adb/NOTICE.txt`).

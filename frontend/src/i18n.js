@@ -9,7 +9,8 @@ export const dict = {
     stDisconnecting: 'Disconnecting…',
     heroIdle: 'Phone internet on your PC',
     subIdle: 'Plug in your phone with USB and press the button.',
-    subConnected: 'Your PC is using the phone\'s internet.',
+    subConnected: 'All traffic now flows through the USB tunnel and leaves from the phone\'s mobile network.',
+    speedtest: 'Run speed test', speedtestDesc: 'Opens speedtest.net in your browser.',
     btnConnect: 'Connect', btnDisconnect: 'Disconnect', btnWait: 'Please wait',
 
     stepPrepare: 'Preparing tools', stepDevice: 'Looking for the phone', stepPush: 'Sending helper to the phone',
@@ -40,8 +41,8 @@ export const dict = {
 
     gTitle: 'How TelTun works', gLead: 'TelTun gives your PC the phone\'s mobile internet through the USB cable. Here is what happens, step by step.',
     gSetupTitle: 'First time setup (one time only)',
-    g1t: 'Turn on Developer options', g1d: 'Settings → About phone → tap "Build number" (or "MIUI / OS version") 7 times.',
-    g2t: 'Turn on USB debugging', g2d: 'Settings → Additional settings → Developer options → USB debugging.',
+    g1t: 'Turn on Developer options', g1d: 'Open Settings → About phone and tap "Build number" 7 times. On Xiaomi, Redmi and POCO tap "OS version". On Samsung go to Software information → Build number. Enter your PIN if asked.',
+    g2t: 'Turn on USB debugging', g2d: 'Open Developer options and turn on "USB debugging". It is usually under Settings → System. On Xiaomi it is under Additional settings, on Samsung at the bottom of Settings.',
     g3t: 'Plug in the cable', g3d: 'Use a good data cable. Pick "File transfer" if the phone asks.',
     g4t: 'Allow this PC', g4d: 'Unlock the phone and tap "Allow" on the USB debugging prompt. Tick "Always allow".',
     gFlowTitle: 'The path of your data',
@@ -70,9 +71,10 @@ export const dict = {
     setDevice: 'Phone to use', setDeviceDesc: 'Pick one if you plug in more than one phone.',
     setApplyNext: 'Takes effect on the next connect.',
 
-    abTitle: 'About', abDesc: 'Share your phone\'s mobile data with your Windows PC over USB. Free and open source, made for learning.',
+    abTitle: 'About', abDesc: 'Share your phone\'s mobile data with your Windows PC over USB.',
     abMadeBy: 'Made by Enes', abVersion: 'Version', abLicense: 'License', abSource: 'Source code',
-    abCredits: 'Built with', abNote: 'Use it with your own phone and mobile plan, and follow your operator\'s terms.',
+    abCredits: 'Built with', abContact: 'Contact',
+    gTestedTitle: 'Tested phones', gTested: 'TelTun works on most Android phones that have USB debugging. Tested and working on:',
   },
   tr: {
     navHome: 'Ana sayfa', navHotspot: 'Etkin nokta', navGuide: 'Nasıl çalışır', navLogs: 'Kayıtlar',
@@ -83,7 +85,8 @@ export const dict = {
     stDisconnecting: 'Kesiliyor…',
     heroIdle: 'Telefon interneti bilgisayarında',
     subIdle: 'Telefonu USB ile tak ve düğmeye bas.',
-    subConnected: 'Bilgisayar telefonun internetini kullanıyor.',
+    subConnected: 'Tüm trafik USB tünelinden geçiyor ve telefonun mobil ağından dünyaya çıkıyor.',
+    speedtest: 'Hız testi yap', speedtestDesc: 'speedtest.net tarayıcıda açılır.',
     btnConnect: 'Bağlan', btnDisconnect: 'Kes', btnWait: 'Bekle',
 
     stepPrepare: 'Araçlar hazırlanıyor', stepDevice: 'Telefon aranıyor', stepPush: 'Yardımcı telefona gönderiliyor',
@@ -114,8 +117,8 @@ export const dict = {
 
     gTitle: 'TelTun nasıl çalışır', gLead: 'TelTun, telefonun mobil internetini USB kablo ile bilgisayara verir. Adım adım ne olduğu burada.',
     gSetupTitle: 'İlk kurulum (sadece bir kez)',
-    g1t: 'Geliştirici seçeneklerini aç', g1d: 'Ayarlar → Telefon hakkında → "Yapı numarası"na (veya "MIUI / OS sürümü") 7 kez dokun.',
-    g2t: 'USB hata ayıklamayı aç', g2d: 'Ayarlar → Ek ayarlar → Geliştirici seçenekleri → USB hata ayıklama.',
+    g1t: 'Geliştirici seçeneklerini aç', g1d: 'Ayarlar → Telefon hakkında bölümüne gir ve "Yapı numarası"na 7 kez dokun. Xiaomi, Redmi ve POCO\'da "OS sürümü"ne dokun. Samsung\'da Yazılım bilgileri → Yapı numarası. Sorarsa ekran kilidi şifreni gir.',
+    g2t: 'USB hata ayıklamayı aç', g2d: 'Geliştirici seçeneklerine gir ve "USB hata ayıklama"yı aç. Genelde Ayarlar → Sistem altındadır. Xiaomi\'de Ek ayarlar altında, Samsung\'da Ayarlar\'ın en altındadır.',
     g3t: 'Kabloyu tak', g3d: 'İyi bir veri kablosu kullan. Telefon sorarsa "Dosya aktarımı" seç.',
     g4t: 'Bu bilgisayara izin ver', g4d: 'Telefonun kilidini aç, USB hata ayıklama sorusunda "İzin ver"e dokun. "Her zaman izin ver"i işaretle.',
     gFlowTitle: 'Verinin yolu',
@@ -144,9 +147,10 @@ export const dict = {
     setDevice: 'Kullanılacak telefon', setDeviceDesc: 'Birden çok telefon takarsan birini seç.',
     setApplyNext: 'Sonraki bağlantıda geçerli olur.',
 
-    abTitle: 'Hakkında', abDesc: 'Telefonun mobil verisini USB ile Windows bilgisayarla paylaş. Ücretsiz ve açık kaynak, öğrenmek için yapıldı.',
+    abTitle: 'Hakkında', abDesc: 'Telefonun mobil verisini USB ile Windows bilgisayarla paylaş.',
     abMadeBy: 'Made by Enes', abVersion: 'Sürüm', abLicense: 'Lisans', abSource: 'Kaynak kod',
-    abCredits: 'Kullanılanlar', abNote: 'Kendi telefonun ve hattınla kullan, operatörünün kurallarına uy.',
+    abCredits: 'Kullanılanlar', abContact: 'İletişim',
+    gTestedTitle: 'Test edilen telefonlar', gTested: 'TelTun, USB hata ayıklaması olan çoğu Android telefonda çalışır. Denenip çalışanlar:',
   },
 };
 

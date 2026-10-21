@@ -95,9 +95,21 @@
         </div>
       </div>
 
+      <div class="glass card st-row">
+        <div><b data-i18n="speedtest"></b><span class="muted" data-i18n="speedtestDesc"></span></div>
+        <button class="btn primary" id="btnSpeedtest">
+          <svg viewBox="0 0 24 24"><path d="M12 14l4-5"/><path d="M4.5 18a9 9 0 1 1 15 0"/></svg>
+          <span data-i18n="speedtest"></span>
+        </button>
+      </div>
+
       <div class="glass card facts">
         <div><span class="muted" data-i18n="device"></span><b id="fDevice">—</b></div>
-        <div><span class="muted" data-i18n="publicIp"></span><b id="fIp">—</b></div>
+        <div><span class="muted ip-head"><span data-i18n="publicIp"></span>
+          <button class="eye" id="ipEye" data-i18n-title="show">
+            <svg class="eye-open" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6A17 17 0 0 0 2 12s3.6 7 10 7a9.6 9.6 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>
+          </button></span><b id="fIp">—</b></div>
         <div><span class="muted" data-i18n="uptime"></span><b id="fUp">—</b></div>
         <div><span class="muted" data-i18n="totalData"></span><b id="fData">—</b></div>
         <div><span class="muted" data-i18n="connections"></span><b id="fConn">—</b></div>
@@ -169,6 +181,16 @@
         <div class="glass card step"><span class="num">4</span><div><b data-i18n="g4t"></b><p class="muted" data-i18n="g4d"></p></div></div>
       </div>
 
+      <h3 data-i18n="gTestedTitle"></h3>
+      <div class="glass card tested">
+        <p class="muted" data-i18n="gTested"></p>
+        <div class="phones">
+          <span class="phone-chip"><i class="dot ok"></i>Redmi Note 13 Pro 5G</span>
+          <span class="phone-chip"><i class="dot ok"></i>Redmi Note 10 Pro</span>
+          <span class="phone-chip"><i class="dot ok"></i>Xiaomi 17 Pro</span>
+        </div>
+      </div>
+
       <div class="grid2">
         <div class="glass card qa"><b data-i18n="gWhyTitle"></b><p class="muted" data-i18n="gWhy"></p></div>
         <div class="glass card qa"><b data-i18n="gAdminTitle"></b><p class="muted" data-i18n="gAdmin"></p></div>
@@ -238,9 +260,12 @@
         <button class="btn primary" id="abSource" data-i18n="abSource"></button>
         <div class="credits">
           <span class="muted" data-i18n="abCredits"></span>
-          <span>sing-box · yamux · Wails · Android platform-tools (adb)</span>
+          <span>sing-box · yamux · Wails · Android platform-tools</span>
         </div>
-        <p class="tip" data-i18n="abNote"></p>
+        <div class="credits">
+          <span class="muted" data-i18n="abContact"></span>
+          <button class="link mail" id="abMail">iletisim@enestunc.com.tr</button>
+        </div>
       </div>
     </section>
   </main>

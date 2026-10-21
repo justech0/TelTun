@@ -105,12 +105,23 @@ function renderStatus() {
   } else al.hidden = true;
 
   $('fDevice').textContent = status.device || t('none');
-  $('fIp').textContent = status.publicIp || t('none');
+  renderIp();
   if (s !== 'connected') {
     $('fUp').textContent = t('none'); $('fConn').textContent = t('none');
   }
   $('devices').hidden = s !== 'idle';
 }
+
+// Public IP is hidden until the user asks to see it.
+let showIp = false;
+function renderIp() {
+  const ip = status.publicIp;
+  $('fIp').textContent = !ip ? t('none') : showIp ? ip : '•••.•••.•••.•••';
+  const eye = $('ipEye');
+  eye.classList.toggle('on', showIp);
+  eye.title = showIp ? t('hide') : t('show');
+}
+$('ipEye').onclick = () => { showIp = !showIp; renderIp(); };
 
 function renderDevices() {
   const box = $('devices');
@@ -243,6 +254,8 @@ function addLog(line) {
 $('logsCopy').onclick = () => { copyText($('logs').textContent); toast(t('copied')); };
 $('logsOpen').onclick = () => Go.OpenLogFolder();
 $('abSource').onclick = () => Go.OpenURL(SOURCE_URL);
+$('abMail').onclick = () => Go.OpenURL('mailto:iletisim@enestunc.com.tr');
+$('btnSpeedtest').onclick = () => Go.OpenURL('https://www.speedtest.net/');
 
 // ---------- events from Go ----------
 EventsOn('status', (s) => {

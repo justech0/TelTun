@@ -301,7 +301,7 @@ func (e *Engine) connect(serial string, blockQUIC bool) error {
 	if err != nil {
 		return fail("errTest", err)
 	}
-	e.Logf("internet via phone OK, public ip %s", ip)
+	e.Logf("internet via phone OK")
 	e.setStatus(func(s *Status) { s.PublicIP = ip })
 
 	e.step("stepTun")
