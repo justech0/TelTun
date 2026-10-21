@@ -35,6 +35,8 @@ Works on most Android phones that have USB debugging. Tested and working on:
 - Redmi Note 10 Pro
 - Xiaomi 17 Pro
 
+Measured on Redmi Note 13 Pro 5G: about **220 Mbps** download through TelTun.
+
 ### How it works
 ```
 PC apps ──► TelTun virtual card ──► USB link (adb) ──► helper on phone ──► mobile network
@@ -98,6 +100,8 @@ USB hata ayıklaması olan çoğu Android telefonda çalışır. Denenip çalı�
 - Redmi Note 13 Pro 5G
 - Redmi Note 10 Pro
 - Xiaomi 17 Pro
+
+Redmi Note 13 Pro 5G ile TelTun üzerinden yaklaşık **220 Mbps** indirme ölçüldü.
 
 ### Nasıl çalışır
 - TelTun telefona küçük bir yardımcı kopyalar (`/data/local/tmp/teltun`) ve `adb shell` ile başlatır. Yardımcı sadece telefonun kendi içini (127.0.0.1) dinler.

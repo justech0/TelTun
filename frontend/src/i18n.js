@@ -5,11 +5,13 @@ export const dict = {
     navSettings: 'Settings', navAbout: 'About',
     madeBy: 'Made by Enes',
 
+    statusLabel: 'Status',
     stIdle: 'Not connected', stConnecting: 'Connecting…', stConnected: 'Connected',
     stDisconnecting: 'Disconnecting…',
     heroIdle: 'Phone internet on your PC',
     subIdle: 'Plug in your phone with USB and press the button.',
     subConnected: 'All traffic now flows through the USB tunnel and leaves from the phone\'s mobile network.',
+    speedtestTitle: 'Measure your real speed',
     speedtest: 'Run speed test', speedtestDesc: 'Opens speedtest.net in your browser.',
     btnConnect: 'Connect', btnDisconnect: 'Disconnect', btnWait: 'Please wait',
 
@@ -81,11 +83,13 @@ export const dict = {
     navSettings: 'Ayarlar', navAbout: 'Hakkında',
     madeBy: 'Made by Enes',
 
+    statusLabel: 'Durum',
     stIdle: 'Bağlı değil', stConnecting: 'Bağlanıyor…', stConnected: 'Bağlı',
     stDisconnecting: 'Kesiliyor…',
     heroIdle: 'Telefon interneti bilgisayarında',
     subIdle: 'Telefonu USB ile tak ve düğmeye bas.',
     subConnected: 'Tüm trafik USB tünelinden geçiyor ve telefonun mobil ağından dünyaya çıkıyor.',
+    speedtestTitle: 'Gerçek hızını ölç',
     speedtest: 'Hız testi yap', speedtestDesc: 'speedtest.net tarayıcıda açılır.',
     btnConnect: 'Bağlan', btnDisconnect: 'Kes', btnWait: 'Bekle',
 

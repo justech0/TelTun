@@ -57,7 +57,7 @@
       <span data-i18n="navAbout"></span>
     </button>
     <div class="side-foot">
-      <span class="dot" id="sideDot"></span><span id="sideState"></span>
+      <span class="side-state" id="sideState" data-s="idle"></span>
     </div>
   </nav>
 
@@ -73,7 +73,7 @@
           </button>
         </div>
         <div class="hero-text">
-          <div class="pill" id="statePill"><span class="dot"></span><span id="stateText"></span></div>
+          <div class="status-line" id="statePill" data-s="idle"><span class="status-k" data-i18n="statusLabel"></span><span id="stateText"></span></div>
           <h1 id="heroTitle"></h1>
           <p class="muted" id="heroSub"></p>
           <ol class="steps" id="steps"></ol>
@@ -96,7 +96,7 @@
       </div>
 
       <div class="glass card st-row">
-        <div><b data-i18n="speedtest"></b><span class="muted" data-i18n="speedtestDesc"></span></div>
+        <div><b data-i18n="speedtestTitle"></b><span class="muted" data-i18n="speedtestDesc"></span></div>
         <button class="btn primary" id="btnSpeedtest">
           <svg viewBox="0 0 24 24"><path d="M12 14l4-5"/><path d="M4.5 18a9 9 0 1 1 15 0"/></svg>
           <span data-i18n="speedtest"></span>
@@ -185,9 +185,9 @@
       <div class="glass card tested">
         <p class="muted" data-i18n="gTested"></p>
         <div class="phones">
-          <span class="phone-chip"><i class="dot ok"></i>Redmi Note 13 Pro 5G</span>
-          <span class="phone-chip"><i class="dot ok"></i>Redmi Note 10 Pro</span>
-          <span class="phone-chip"><i class="dot ok"></i>Xiaomi 17 Pro</span>
+          <span class="phone-row"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Redmi Note 13 Pro 5G</span>
+          <span class="phone-row"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Redmi Note 10 Pro</span>
+          <span class="phone-row"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Xiaomi 17 Pro</span>
         </div>
       </div>
 

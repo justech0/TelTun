@@ -72,9 +72,8 @@ function renderStatus() {
   const key = { idle: 'stIdle', connecting: 'stConnecting', connected: 'stConnected', disconnecting: 'stDisconnecting' }[s];
   $('stateText').textContent = t(key);
   $('sideState').textContent = t(key);
-  const dotCls = s === 'connected' ? 'dot ok' : s === 'idle' ? 'dot' : 'dot busy';
-  $('statePill').querySelector('.dot').className = dotCls;
-  $('sideDot').className = dotCls;
+  $('statePill').dataset.s = s;
+  $('sideState').dataset.s = s;
 
   $('heroTitle').textContent = s === 'connected' ? (status.device || t('stConnected')) : s === 'idle' ? t('heroIdle') : t(key);
   $('heroSub').textContent = s === 'connected' ? t('subConnected') : s === 'idle' ? t('subIdle') : '';
@@ -128,7 +127,7 @@ function renderDevices() {
   box.innerHTML = '';
   if (!devices || !devices.length) {
     const d = document.createElement('span');
-    d.className = 'dev'; d.innerHTML = '<span class="dot"></span>';
+    d.className = 'dev none'; d.innerHTML = '<svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></svg>';
     d.append(t('noPhones'));
     box.appendChild(d);
   } else {
@@ -136,9 +135,14 @@ function renderDevices() {
       const d = document.createElement('span');
       d.className = 'dev';
       const ok = dv.state === 'device';
-      d.innerHTML = `<span class="${ok ? 'dot ok' : 'dot busy'}"></span>`;
+      d.innerHTML = '<svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></svg>';
+      if (!ok) d.classList.add('wait');
       const stKey = { device: 'stDevice', unauthorized: 'stUnauthorized' }[dv.state] || 'stOffline';
-      d.append(`${dv.model || dv.serial} · ${t(stKey)}`);
+      const name = document.createElement('b');
+      name.textContent = dv.model || dv.serial;
+      const st = document.createElement('span');
+      st.textContent = t(stKey);
+      d.append(name, st);
       box.appendChild(d);
     });
   }
