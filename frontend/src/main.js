@@ -75,8 +75,11 @@ function renderStatus() {
   $('statePill').dataset.s = s;
   $('sideState').dataset.s = s;
 
-  $('heroTitle').textContent = s === 'connected' ? (status.device || t('stConnected')) : s === 'idle' ? t('heroIdle') : t(key);
-  $('heroSub').textContent = s === 'connected' ? t('subConnected') : s === 'idle' ? t('subIdle') : '';
+  // idle: show the phone that is ready, or say none is found
+  const ready = (devices || []).find(d => d.state === 'device' && (!settings.device || d.serial === settings.device));
+  $('heroTitle').textContent = s === 'connected' ? (status.device || t('stConnected'))
+    : s === 'idle' ? (ready ? (ready.model || ready.serial) : t('heroWait')) : t(key);
+  $('heroSub').textContent = s === 'connected' ? t('subConnected') : s === 'idle' ? (ready ? t('subReady') : t('subIdle')) : '';
 
   // progress list while connecting
   const ol = $('steps');
@@ -274,7 +277,7 @@ EventsOn('stats', (s) => {
   hist.up.push(mbps(s.up)); hist.up.shift();
   renderStats();
 });
-EventsOn('devices', (d) => { devices = d || []; if (status.state === 'idle') renderDevices(); });
+EventsOn('devices', (d) => { devices = d || []; if (status.state === 'idle') { renderDevices(); renderStatus(); } });
 EventsOn('log', addLog);
 EventsOn('lost', () => toast(t('lost')));
 EventsOn('hotspot', (h) => { hotspot = h; renderHotspot(); });

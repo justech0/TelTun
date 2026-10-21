@@ -16,7 +16,7 @@ import (
 //go:embed all:frontend/dist
 var assets embed.FS
 
-var version = "1.0.2"
+var version = "1.0.3"
 
 func main() {
 	startHidden := false

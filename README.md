@@ -14,28 +14,17 @@ TelTun is a small Windows program. Plug in your phone with a USB cable, press **
 
 ### Features
 - One-click **Connect / Disconnect**
-- Live **download / upload speed** with charts, and a **speedtest.net** button
-- Public IP is **hidden by default**, with a show / hide button
+- Live **download / upload speed** with charts
 - **Mobile hotspot** button: share the tunnel with other devices over Wi-Fi
 - **Tray icon**, start with Windows, auto reconnect
 - **English and Turkish** interface
 - A **How it works** page that explains every step — TelTun is made for learning
 
 ### First time setup
-1. On the phone open **Settings → About phone** and tap **Build number** 7 times. Developer options are now on.
-   - Xiaomi / Redmi / POCO: tap **OS version** instead.
-   - Samsung: **About phone → Software information → Build number**.
-2. Open **Developer options** and turn on **USB debugging**. It is usually under **Settings → System**. On Xiaomi it is under **Additional settings**, on Samsung at the bottom of Settings.
+1. On the phone: **Settings → About phone →** tap **Build number** (or OS version) 7 times. Developer options are now on.
+2. **Developer options → USB debugging** → on.
 3. Plug in the cable. Unlock the phone and tap **Allow** on the USB debugging prompt (tick *Always allow*).
 4. Open `TelTun.exe` (it asks for admin rights) and press **Connect**.
-
-### Tested phones
-Works on most Android phones that have USB debugging. Tested and working on:
-- Redmi Note 13 Pro 5G
-- Redmi Note 10 Pro
-- Xiaomi 17 Pro
-
-Measured on Redmi Note 13 Pro 5G: about **220 Mbps** download through TelTun.
 
 ### How it works
 ```
@@ -80,28 +69,17 @@ TelTun küçük bir Windows programı. Telefonu USB kabloyla tak, **Bağlan**'a 
 
 ### Özellikler
 - Tek tıkla **Bağlan / Kes**
-- Grafikli anlık **indirme / yükleme hızı** ve **speedtest.net** hız testi düğmesi
-- Genel IP **varsayılan olarak gizli**, göster / gizle düğmesi var
+- Grafikli anlık **indirme / yükleme hızı**
 - **Mobil etkin nokta** düğmesi: tüneli Wi-Fi ile başka cihazlarla paylaş
 - **Sistem tepsisi**, Windows ile başlat, kopunca yeniden bağlan
 - **Türkçe ve İngilizce** arayüz
 - Her adımı anlatan **Nasıl çalışır** sayfası — TelTun öğrenmek için yapıldı
 
 ### İlk kurulum
-1. Telefonda **Ayarlar → Telefon hakkında** bölümüne gir ve **Yapı numarası**'na 7 kez dokun. Geliştirici seçenekleri açılır.
-   - Xiaomi / Redmi / POCO: **OS sürümü**'ne dokun.
-   - Samsung: **Telefon hakkında → Yazılım bilgileri → Yapı numarası**.
-2. **Geliştirici seçenekleri**'ne gir ve **USB hata ayıklama**'yı aç. Genelde **Ayarlar → Sistem** altındadır. Xiaomi'de **Ek ayarlar** altında, Samsung'da Ayarlar'ın en altındadır.
+1. Telefonda: **Ayarlar → Telefon hakkında →** **Yapı numarası**'na (veya OS sürümü) 7 kez dokun. Geliştirici seçenekleri açılır.
+2. **Geliştirici seçenekleri → USB hata ayıklama** → aç.
 3. Kabloyu tak. Telefonun kilidini aç, USB hata ayıklama sorusunda **İzin ver**'e dokun (*Her zaman izin ver*'i işaretle).
 4. `TelTun.exe`'yi aç (yönetici izni ister) ve **Bağlan**'a bas.
-
-### Test edilen telefonlar
-USB hata ayıklaması olan çoğu Android telefonda çalışır. Denenip çalışanlar:
-- Redmi Note 13 Pro 5G
-- Redmi Note 10 Pro
-- Xiaomi 17 Pro
-
-Redmi Note 13 Pro 5G ile TelTun üzerinden yaklaşık **220 Mbps** indirme ölçüldü.
 
 ### Nasıl çalışır
 - TelTun telefona küçük bir yardımcı kopyalar (`/data/local/tmp/teltun`) ve `adb shell` ile başlatır. Yardımcı sadece telefonun kendi içini (127.0.0.1) dinler.
@@ -121,7 +99,7 @@ Go 1.25+, Node.js ve Wails CLI gerekir. `./build.ps1` çalıştır, sonuç `buil
 ---
 
 ## Contact / İletişim
-📧 [iletisim@enestunc.com.tr](mailto:iletisim@enestunc.com.tr)
+[iletisim@enestunc.com.tr](mailto:iletisim@enestunc.com.tr)
 
 ## License / Lisans
 GPL-3.0 — see [LICENSE](LICENSE). Uses sing-box (GPL-3.0), yamux (MPL-2.0), Wails (MIT), fyne systray (Apache-2.0) and Android platform-tools (Apache-2.0, see `assets/adb/NOTICE.txt`).
