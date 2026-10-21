@@ -1,0 +1,17 @@
+export function Connect():Promise<any>;
+export function Devices():Promise<any>;
+export function Disconnect():Promise<any>;
+export function Hide():Promise<any>;
+export function HotspotStart():Promise<any>;
+export function HotspotStatus():Promise<any>;
+export function HotspotStop():Promise<any>;
+export function Minimise():Promise<any>;
+export function OpenLogFolder():Promise<any>;
+export function OpenURL(arg1:any):Promise<any>;
+export function Quit():Promise<any>;
+export function SaveSettings(arg1:any):Promise<any>;
+export function SetAutostart(arg1:any):Promise<any>;
+export function Settings():Promise<any>;
+export function Show():Promise<any>;
+export function Snapshot():Promise<any>;
+export function Toggle():Promise<any>;

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "TelTun",
+  "outputfilename": "TelTun",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Enes",
+    "email": ""
+  },
+  "info": {
+    "companyName": "Enes",
+    "productName": "TelTun",
+    "productVersion": "1.0.0",
+    "copyright": "Made by Enes. GPL-3.0",
+    "comments": "Share your phone internet with your PC over USB"
+  }
+}

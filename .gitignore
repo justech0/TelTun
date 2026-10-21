@@ -1,0 +1,9 @@
+build/bin
+node_modules
+frontend/dist/*
+!frontend/dist/gitkeep
+# made by build.ps1
+assets/phone/teltun-*
+assets/adb/*
+!assets/adb/README.md
+frontend/package.json.md5

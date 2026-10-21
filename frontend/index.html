@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TelTun</title>
+  <link rel="stylesheet" href="./src/style.css"/>
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i>
+</div>
+
+<header class="titlebar" style="--wails-draggable:drag">
+  <div class="brand">
+    <img src="./src/logo.svg" alt="" class="brand-logo"/>
+    <span class="brand-name">TelTun</span>
+    <span class="brand-by" data-i18n="madeBy"></span>
+  </div>
+  <div class="tb-actions" style="--wails-draggable:no-drag">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button data-lang="tr">TR</button><button data-lang="en">EN</button>
+    </div>
+    <button class="tb-btn" id="btnMin" aria-label="Minimize">
+      <svg viewBox="0 0 12 12"><path d="M2 6h8"/></svg>
+    </button>
+    <button class="tb-btn close" id="btnClose" aria-label="Close">
+      <svg viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="side glass">
+    <button class="nav active" data-page="home">
+      <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg>
+      <span data-i18n="navHome"></span>
+    </button>
+    <button class="nav" data-page="hotspot">
+      <svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8 15.5a5.5 5.5 0 0 1 8 0"/><circle cx="12" cy="18.5" r="1.3"/><path d="M2 9.5a14 14 0 0 1 20 0"/></svg>
+      <span data-i18n="navHotspot"></span>
+    </button>
+    <button class="nav" data-page="guide">
+      <svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg>
+      <span data-i18n="navGuide"></span>
+    </button>
+    <button class="nav" data-page="logs">
+      <svg viewBox="0 0 24 24"><path d="M5 6h14M5 10h14M5 14h9M5 18h6"/></svg>
+      <span data-i18n="navLogs"></span>
+    </button>
+    <button class="nav" data-page="settings">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.6 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      <span data-i18n="navSettings"></span>
+    </button>
+    <button class="nav" data-page="about">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <span data-i18n="navAbout"></span>
+    </button>
+    <div class="side-foot">
+      <span class="dot" id="sideDot"></span><span id="sideState"></span>
+    </div>
+  </nav>
+
+  <main class="pages">
+    <!-- HOME -->
+    <section class="page active" id="page-home">
+      <div class="hero glass">
+        <div class="orb-wrap">
+          <button class="orb" id="orb" data-state="idle">
+            <span class="orb-ring"></span><span class="orb-ring r2"></span>
+            <svg class="orb-icon" viewBox="0 0 24 24"><path d="M12 3v9"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>
+            <span class="orb-label" id="orbLabel"></span>
+          </button>
+        </div>
+        <div class="hero-text">
+          <div class="pill" id="statePill"><span class="dot"></span><span id="stateText"></span></div>
+          <h1 id="heroTitle"></h1>
+          <p class="muted" id="heroSub"></p>
+          <ol class="steps" id="steps"></ol>
+          <div class="alert" id="alert" hidden></div>
+          <div class="devices" id="devices"></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="glass card speed">
+          <div class="speed-head"><span class="chip down">↓</span><span data-i18n="download"></span></div>
+          <div class="speed-val"><b id="downVal">0.0</b><small>Mbps</small></div>
+          <canvas id="downChart" height="60"></canvas>
+        </div>
+        <div class="glass card speed">
+          <div class="speed-head"><span class="chip up">↑</span><span data-i18n="upload"></span></div>
+          <div class="speed-val"><b id="upVal">0.0</b><small>Mbps</small></div>
+          <canvas id="upChart" height="60"></canvas>
+        </div>
+      </div>
+
+      <div class="glass card facts">
+        <div><span class="muted" data-i18n="device"></span><b id="fDevice">—</b></div>
+        <div><span class="muted" data-i18n="publicIp"></span><b id="fIp">—</b></div>
+        <div><span class="muted" data-i18n="uptime"></span><b id="fUp">—</b></div>
+        <div><span class="muted" data-i18n="totalData"></span><b id="fData">—</b></div>
+        <div><span class="muted" data-i18n="connections"></span><b id="fConn">—</b></div>
+      </div>
+    </section>
+
+    <!-- HOTSPOT -->
+    <section class="page" id="page-hotspot">
+      <h2 data-i18n="hsTitle"></h2>
+      <p class="muted lead" data-i18n="hsDesc"></p>
+      <div class="glass card hs-main">
+        <div class="hs-icon" id="hsIcon">
+          <svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8 15.5a5.5 5.5 0 0 1 8 0"/><circle cx="12" cy="18.5" r="1.3"/><path d="M2 9.5a14 14 0 0 1 20 0"/></svg>
+        </div>
+        <div class="hs-text">
+          <b id="hsState"></b>
+          <span class="muted" id="hsMsg"></span>
+        </div>
+        <button class="btn primary" id="hsBtn"></button>
+      </div>
+      <div class="grid3">
+        <div class="glass card kv"><span class="muted" data-i18n="hsName"></span><b id="hsSsid">—</b>
+          <button class="link" data-copy="hsSsid" data-i18n="copy"></button></div>
+        <div class="glass card kv"><span class="muted" data-i18n="hsPass"></span><b id="hsPassView" class="secret">—</b>
+          <div class="row-btns"><button class="link" id="hsReveal" data-i18n="show"></button>
+          <button class="link" data-copy="hsPassView" data-i18n="copy"></button></div></div>
+        <div class="glass card kv"><span class="muted" data-i18n="hsClients"></span><b id="hsClients">—</b></div>
+      </div>
+      <p class="tip" data-i18n="hsTip"></p>
+      <div class="glass card form">
+        <div class="row">
+          <div><b data-i18n="hsCustom"></b><span class="muted" data-i18n="hsCustomDesc"></span></div>
+        </div>
+        <div class="inputs">
+          <input id="hsSsidIn" maxlength="32" data-i18n-ph="hsName" spellcheck="false"/>
+          <input id="hsPassIn" maxlength="63" data-i18n-ph="hsPass" spellcheck="false"/>
+          <button class="btn" id="hsSave" data-i18n="save"></button>
+        </div>
+        <label class="row toggle-row">
+          <div><b data-i18n="hsWithTun"></b><span class="muted" data-i18n="hsWithTunDesc"></span></div>
+          <input type="checkbox" class="switch" data-set="hotspotWithTun"/>
+        </label>
+      </div>
+    </section>
+
+    <!-- GUIDE -->
+    <section class="page" id="page-guide">
+      <h2 data-i18n="gTitle"></h2>
+      <p class="muted lead" data-i18n="gLead"></p>
+
+      <h3 data-i18n="gFlowTitle"></h3>
+      <div class="flow">
+        <div class="glass node"><span class="n-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><b data-i18n="fApps"></b><small data-i18n="fAppsD"></small></div>
+        <div class="arrow"><i></i></div>
+        <div class="glass node accent"><span class="n-ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></span><b data-i18n="fTun"></b><small data-i18n="fTunD"></small></div>
+        <div class="arrow"><i></i></div>
+        <div class="glass node accent"><span class="n-ic"><svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0zM12 16v5"/></svg></span><b data-i18n="fUsb"></b><small data-i18n="fUsbD"></small></div>
+        <div class="arrow"><i></i></div>
+        <div class="glass node accent"><span class="n-ic"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></svg></span><b data-i18n="fPhone"></b><small data-i18n="fPhoneD"></small></div>
+        <div class="arrow"><i></i></div>
+        <div class="glass node"><span class="n-ic"><svg viewBox="0 0 24 24"><path d="M12 13v8M8.5 21h7"/><circle cx="12" cy="11" r="2"/><path d="M7.8 6.8a6 6 0 0 0 0 8.4M16.2 6.8a6 6 0 0 1 0 8.4M5 4a10 10 0 0 0 0 14M19 4a10 10 0 0 1 0 14"/></svg></span><b data-i18n="fNet"></b><small data-i18n="fNetD"></small></div>
+      </div>
+
+      <h3 data-i18n="gSetupTitle"></h3>
+      <div class="grid2 steps-grid">
+        <div class="glass card step"><span class="num">1</span><div><b data-i18n="g1t"></b><p class="muted" data-i18n="g1d"></p></div></div>
+        <div class="glass card step"><span class="num">2</span><div><b data-i18n="g2t"></b><p class="muted" data-i18n="g2d"></p></div></div>
+        <div class="glass card step"><span class="num">3</span><div><b data-i18n="g3t"></b><p class="muted" data-i18n="g3d"></p></div></div>
+        <div class="glass card step"><span class="num">4</span><div><b data-i18n="g4t"></b><p class="muted" data-i18n="g4d"></p></div></div>
+      </div>
+
+      <div class="grid2">
+        <div class="glass card qa"><b data-i18n="gWhyTitle"></b><p class="muted" data-i18n="gWhy"></p></div>
+        <div class="glass card qa"><b data-i18n="gAdminTitle"></b><p class="muted" data-i18n="gAdmin"></p></div>
+        <div class="glass card qa"><b data-i18n="gSafeTitle"></b><p class="muted" data-i18n="gSafe"></p></div>
+        <div class="glass card qa"><b data-i18n="gTroubleTitle"></b><p class="muted" data-i18n="gTrouble"></p></div>
+      </div>
+    </section>
+
+    <!-- LOGS -->
+    <section class="page" id="page-logs">
+      <div class="page-head">
+        <h2 data-i18n="logsTitle"></h2>
+        <div class="row-btns">
+          <button class="btn" id="logsCopy" data-i18n="logsCopy"></button>
+          <button class="btn" id="logsOpen" data-i18n="logsOpen"></button>
+        </div>
+      </div>
+      <pre class="glass logs" id="logs"></pre>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="page" id="page-settings">
+      <h2 data-i18n="setTitle"></h2>
+      <div class="glass card form">
+        <div class="row">
+          <div><b data-i18n="setLang"></b><span class="muted" data-i18n="setLangDesc"></span></div>
+          <div class="seg" id="langSeg"><button data-lang="tr">Türkçe</button><button data-lang="en">English</button></div>
+        </div>
+        <label class="row toggle-row">
+          <div><b data-i18n="setAutostart"></b><span class="muted" data-i18n="setAutostartDesc"></span></div>
+          <input type="checkbox" class="switch" id="autostart"/>
+        </label>
+        <label class="row toggle-row">
+          <div><b data-i18n="setAutoConnect"></b><span class="muted" data-i18n="setAutoConnectDesc"></span></div>
+          <input type="checkbox" class="switch" data-set="autoConnect"/>
+        </label>
+        <label class="row toggle-row">
+          <div><b data-i18n="setAutoReconnect"></b><span class="muted" data-i18n="setAutoReconnectDesc"></span></div>
+          <input type="checkbox" class="switch" data-set="autoReconnect"/>
+        </label>
+        <label class="row toggle-row">
+          <div><b data-i18n="setTray"></b><span class="muted" data-i18n="setTrayDesc"></span></div>
+          <input type="checkbox" class="switch" data-set="closeToTray"/>
+        </label>
+        <label class="row toggle-row">
+          <div><b data-i18n="setQuic"></b><span class="muted"><span data-i18n="setQuicDesc"></span> <span data-i18n="setApplyNext"></span></span></div>
+          <input type="checkbox" class="switch" data-set="blockQuic"/>
+        </label>
+        <div class="row">
+          <div><b data-i18n="setDevice"></b><span class="muted" data-i18n="setDeviceDesc"></span></div>
+          <select id="deviceSel"></select>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page" id="page-about">
+      <div class="glass about">
+        <img src="./src/logo.svg" alt="" class="about-logo"/>
+        <h2>TelTun</h2>
+        <div class="made">Made by <b>Enes</b></div>
+        <p class="muted" data-i18n="abDesc"></p>
+        <div class="about-kv">
+          <div><span class="muted" data-i18n="abVersion"></span><b id="abVer"></b></div>
+          <div><span class="muted" data-i18n="abLicense"></span><b>GPL-3.0</b></div>
+        </div>
+        <button class="btn primary" id="abSource" data-i18n="abSource"></button>
+        <div class="credits">
+          <span class="muted" data-i18n="abCredits"></span>
+          <span>sing-box · yamux · Wails · Android platform-tools (adb)</span>
+        </div>
+        <p class="tip" data-i18n="abNote"></p>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast" hidden></div>
+<script src="./src/main.js" type="module"></script>
+</body>
+</html>
