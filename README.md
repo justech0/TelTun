@@ -10,7 +10,7 @@ Made by Enes · English / Türkçe</p>
 
 ## English
 
-TelTun is a small Windows program. Plug in your phone with a USB cable, press **Connect**, and your PC uses the phone's mobile data. Nothing to install on the phone.
+TelTun turns a USB cable into a full-speed internet line from your Android phone to your Windows PC. It skips the phone's tethering mode entirely: a helper on the phone makes every connection itself, so the operator sees ordinary phone traffic and its tethering limits never kick in. No app to install on the phone, no drivers, just one exe and one button.
 
 ### Why not normal USB tethering?
 Android already has USB tethering, but many operators limit it: they block it, slow it down, or give it a small separate quota. They can do this because in tethering mode the phone works as a router. It may switch to a special tethering APN, and the PC's packets pass through with the PC's own TTL, so the operator can tell they come from another device.
@@ -75,7 +75,7 @@ Project layout:
 
 ## Türkçe
 
-TelTun küçük bir Windows programı. Telefonu USB kabloyla tak, **Bağlan**'a bas, bilgisayar telefonun mobil verisini kullansın. Telefona bir şey kurmana gerek yok.
+TelTun, USB kabloyu Android telefonundan Windows bilgisayarına uzanan tam hızlı bir internet hattına çevirir. Telefonun tethering modunu hiç kullanmaz: telefondaki yardımcı her bağlantıyı kendisi açar. Operatör sadece sıradan telefon trafiği görür, tethering sınırları hiç devreye girmez. Telefona uygulama yok, sürücü yok: tek bir exe, tek bir düğme.
 
 ### Normal USB tethering'den farkı ne?
 Android'de zaten USB tethering (USB ile internet paylaşımı) var. Ama birçok operatör bunu sınırlıyor: engelliyor, yavaşlatıyor ya da ayrı ve küçük bir kota veriyor. Bunu yapabiliyorlar, çünkü tethering modunda telefon bir router gibi çalışır. Özel bir tethering APN'ine geçebilir, bilgisayarın paketleri de bilgisayarın kendi TTL değeriyle geçer. Operatör böylece trafiğin başka bir cihazdan geldiğini anlar.
