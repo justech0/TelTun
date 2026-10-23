@@ -12,6 +12,16 @@ Made by Enes · English / Türkçe</p>
 
 TelTun is a small Windows program. Plug in your phone with a USB cable, press **Connect**, and your PC uses the phone's mobile data. Nothing to install on the phone.
 
+### Why not normal USB tethering?
+Android already has USB tethering, but many operators limit it: they block it, slow it down, or give it a small separate quota. They can do this because in tethering mode the phone works as a router. It may switch to a special tethering APN, and the PC's packets pass through with the PC's own TTL, so the operator can tell they come from another device.
+
+TelTun is built to get around these operator limits. It does not use tethering mode at all:
+- A small helper on the phone opens every connection itself, as normal app traffic on the phone's normal mobile data.
+- The packets are made by the phone's own network stack, so TTL and other traces look exactly like the phone's.
+- No tethering APN and no hotspot quota are used. It works even when the operator has turned tethering off.
+
+On a Redmi Note 13 Pro 5G this gave about **220 Mbps**, where a well-known "hide tethering" tool reached about 40 Mbps.
+
 ### Features
 - One-click **Connect / Disconnect**
 - Live **download / upload speed** with charts
@@ -66,6 +76,16 @@ Project layout:
 ## Türkçe
 
 TelTun küçük bir Windows programı. Telefonu USB kabloyla tak, **Bağlan**'a bas, bilgisayar telefonun mobil verisini kullansın. Telefona bir şey kurmana gerek yok.
+
+### Normal USB tethering'den farkı ne?
+Android'de zaten USB tethering (USB ile internet paylaşımı) var. Ama birçok operatör bunu sınırlıyor: engelliyor, yavaşlatıyor ya da ayrı ve küçük bir kota veriyor. Bunu yapabiliyorlar, çünkü tethering modunda telefon bir router gibi çalışır. Özel bir tethering APN'ine geçebilir, bilgisayarın paketleri de bilgisayarın kendi TTL değeriyle geçer. Operatör böylece trafiğin başka bir cihazdan geldiğini anlar.
+
+TelTun, operatörün koyduğu bu sınırları aşmak için yapıldı. Tethering modunu hiç kullanmaz:
+- Telefondaki küçük yardımcı her bağlantıyı kendisi açar. Bu, telefonun normal mobil verisinde normal uygulama trafiğidir.
+- Paketleri telefonun kendi ağ katmanı üretir. TTL ve diğer izler tamamen telefonunki gibi görünür.
+- Tethering APN'i ve etkin nokta kotası kullanılmaz. Operatör tethering'i kapatmış olsa bile çalışır.
+
+Redmi Note 13 Pro 5G ile yaklaşık **220 Mbps** alındı. Bilinen bir "tethering gizleme" aracıyla aynı telefonda yaklaşık 40 Mbps alınıyordu.
 
 ### Özellikler
 - Tek tıkla **Bağlan / Kes**
