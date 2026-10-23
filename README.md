@@ -75,12 +75,12 @@ Project layout:
 
 ## Türkçe
 
-TelTun, USB kabloyu Android telefonundan Windows bilgisayarına uzanan tam hızlı bir internet hattına çevirir. Telefonun tethering modunu hiç kullanmaz: telefondaki yardımcı her bağlantıyı kendisi açar. Operatör sadece sıradan telefon trafiği görür, tethering sınırları hiç devreye girmez. Telefona uygulama yok, sürücü yok: tek bir exe, tek bir düğme.
+TelTun, USB kablosuyla telefonundan Windows bilgisayarına uzanan hızlı bir internet hattına çevirir. Telefonun tethering modunu kullanmaz. Operatör sıradan telefon trafiği görür, tethering sınırları hiç devreye girmez. Telefona ekstra bir uygulama kurmana gerek yok. TelTun'u kullanman yeterli
 
 ### Normal USB tethering'den farkı ne?
-Android'de zaten USB tethering (USB ile internet paylaşımı) var. Ama birçok operatör bunu sınırlıyor: engelliyor, yavaşlatıyor ya da ayrı ve küçük bir kota veriyor. Bunu yapabiliyorlar, çünkü tethering modunda telefon bir router gibi çalışır. Özel bir tethering APN'ine geçebilir, bilgisayarın paketleri de bilgisayarın kendi TTL değeriyle geçer. Operatör böylece trafiğin başka bir cihazdan geldiğini anlar.
+Android'de zaten USB tethering yani usb den internet paylaşımı mevcut. Fakat birçok operatör sınırlar koyuyor engelliyor, yavaşlatıyor ya da ayrı ve küçük bir kota veriyor.Çünkü tethering modunda telefon bir router gibi çalışır. Özel bir tethering APN'sine geçebilir, bilgisayarın paketleri de bilgisayarın kendi TTL değeriyle geçer. Operatör böylece trafiğin başka bir cihazdan geldiğini anlar.
 
-TelTun, operatörün koyduğu bu sınırları aşmak için yapıldı. Tethering modunu hiç kullanmaz:
+**TelTun**, operatörün koyduğu bu sınırları aşmak için yapıldı. Tethering modunu hiç kullanmaz:
 - Telefondaki küçük yardımcı her bağlantıyı kendisi açar. Bu, telefonun normal mobil verisinde normal uygulama trafiğidir.
 - Paketleri telefonun kendi ağ katmanı üretir. TTL ve diğer izler tamamen telefonunki gibi görünür.
 - Tethering APN'i ve etkin nokta kotası kullanılmaz. Operatör tethering'i kapatmış olsa bile çalışır.
@@ -95,14 +95,14 @@ Redmi Note 13 Pro 5G ile yaklaşık **220 Mbps** alındı. Bilinen bir "tetherin
 - **Türkçe ve İngilizce** arayüz
 - Her adımı anlatan **Nasıl çalışır** sayfası — TelTun öğrenmek için yapıldı
 
-### İlk kurulum
+### Kurulum
 1. Telefonda: **Ayarlar → Telefon hakkında →** **Yapı numarası**'na (veya OS sürümü) 7 kez dokun. Geliştirici seçenekleri açılır.
 2. **Geliştirici seçenekleri → USB hata ayıklama** → aç.
 3. Kabloyu tak. Telefonun kilidini aç, USB hata ayıklama sorusunda **İzin ver**'e dokun (*Her zaman izin ver*'i işaretle).
 4. `TelTun.exe`'yi aç (yönetici izni ister) ve **Bağlan**'a bas.
 
 ### Nasıl çalışır
-- TelTun telefona küçük bir yardımcı kopyalar (`/data/local/tmp/teltun`) ve `adb shell` ile başlatır. Yardımcı sadece telefonun kendi içini (127.0.0.1) dinler.
+- TelTun telefona küçük bir yardımcı kopyalar (`/data/local/tmp/teltun`) ve `adb shell` ile başlatır. Yardımcı sadece telefonun kendi içini 127.0.0.1 dinler.
 - `adb forward`, bilgisayarı USB üzerinden yardımcıya bağlar.
 - **Neden tek akış?** adb tek akışta yaklaşık 300 Mbps taşır, ama aynı anda çok akış açılınca birbirini kilitler. TelTun bütün bağlantıları [yamux](https://github.com/hashicorp/yamux) ile **tek** akışın içine koyar. İçerdeki her bağlantı küçük bir SOCKS5 oturumudur; UDP, *UDP-over-TCP* olarak taşınır.
 - Bilgisayarda [sing-box](https://github.com/SagerNet/sing-box), **TelTun** adlı sanal ağ kartı kurar ve tüm trafiği (DNS dahil) hatta yollar.
